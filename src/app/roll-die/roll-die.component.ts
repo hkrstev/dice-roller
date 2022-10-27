@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-roll-die',
@@ -16,10 +16,17 @@ export class RollDieComponent implements OnInit {
 
   roll = () => {
     this.result = Math.floor(Math.random() * Number(this.sideCount)) + 1;
+    this.dieRolled.emit({ 
+        side: this.sideCount, 
+        result: this.result });
   };
 
   @Input('side-count')
   sideCount = "";
+
+
+  @Output('die-rolled')
+  dieRolled = new EventEmitter <{side: string, result: number}> ();
 
 
 }
