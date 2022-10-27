@@ -12,4 +12,10 @@ export class RollDieComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  result = 0;
+
+  roll = () => {
+    this.result = Math.floor(Math.random() * 6) + 1;
+  }
+
 }
