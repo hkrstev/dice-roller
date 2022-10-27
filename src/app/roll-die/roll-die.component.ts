@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-roll-die',
@@ -15,7 +15,11 @@ export class RollDieComponent implements OnInit {
   result = 0;
 
   roll = () => {
-    this.result = Math.floor(Math.random() * 6) + 1;
-  }
+    this.result = Math.floor(Math.random() * Number(this.sideCount)) + 1;
+  };
+
+  @Input('side-count')
+  sideCount = "";
+
 
 }
