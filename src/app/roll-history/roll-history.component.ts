@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DiceRollingService } from '../dice-rolling.service';
 
 @Component({
   selector: 'app-roll-history',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RollHistoryComponent implements OnInit {
 
-  constructor() { }
+    
+  constructor(
+    public diceRollingSvc: DiceRollingService
+  ) {}
 
   ngOnInit(): void {
   }
